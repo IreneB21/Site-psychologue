@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="./style.css">
     <link rel="preload" href="./images" as="pictures">
+    <script src="script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,16 +29,15 @@
             <div>
                 <h1 class="titre-contact" id="contact">Prenez rendez-vous</h1>
             </div>
-            <form method="post" action="submit_form.php">
+            <form method="post" action="#">
                 <fieldset>
                     <legend>Choisissez votre mode de consultation : </legend>
                     <div>
-                        <input type="checkbox" id="cabinet" name="cabinet" checked />
+                        <input type="radio" id="cabinet" name="modalite" value="cabinet" checked />
                         <label for="cabinet">Au cabinet</label>
                     </div>
-
                     <div>
-                        <input type="checkbox" id="teleconsultation" name="teleconsultation" />
+                        <input type="radio" id="teleconsultation" name="modalite" value="teleconsultation"/>
                         <label for="teleconsultation">Téléconsultation</label>
                     </div>
                 </fieldset>
@@ -53,15 +53,60 @@
                 </div>
                 <label for="message">message</label>
                 <textarea name="message" id="message" rows="10"></textarea>
-                <input type="submit" value="ENVOYER" class="cta contact"/>
+                <input type="submit" value="ENVOYER" class="cta contact" onclick="afficherMessageForm()"/>
             </form>
         </section>
 
+        <section id="vérification-form">
         <?php
-        $retour = mail('cathylourenço@gmail.com', 'Prise de contact', $message, $headers);
+
+        require_once(__DIR__ . '/mysql.php');
+        require_once(__DIR__ . '/databaseconnect.php');
+
+        $postData = $_POST;
+
+        if (
+            empty($postData['nom'])
+            || empty($postData['email'])
+            || trim(strip_tags($postData['nom'])) === ''
+            || trim(strip_tags($postData['email'])) === ''
+        ) {
+            echo "<div id='msg-erreur' class='message-formulaire erreur'>
+                    <h3>Merci d'indiquer votre nom et votre email pour prendre rendez-vous.</h3>
+                    <div class='fermer-notification' onclick='fermerNotification()'>
+                        <span class='fermer un'></span>
+                        <span class='fermer deux'></span>
+                    </div>
+                  </div>";
+            return;
+        }
+
+        $nom = trim(strip_tags($postData['nom']));
+        $email = trim(strip_tags($postData['email']));
+        $message = trim(strip_tags($postData['message']));
+
+        $insertContact = $mysqlClient->prepare('INSERT INTO Rdv_teleconsultation(nom, email, message) VALUES (:nom, :email, :message)');
+        $insertContact->execute([
+            'nom' => $nom,
+            'email' => $email,
+            'message' => $message,
+        ]);
+
+        $headers = "De : " . $postData['nom'] .', ' . $postData['email'];
+        $message  = $postData['message'];
+        $objet = "Prise de rendez-vous : " . $postData['modalite'];
+
+        $retour = mail('cathylourenço@gmail.com', $objet, $message, $headers);
         if ($retour)
-            echo '<h2>Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.</h2>';
+            echo '<div id="msg-confirmation" class="message-formulaire confirmation">
+                    <h3>Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.</h3>
+                    <div class="fermer-notification" onclick="fermerNotification()">
+                        <span class="fermer un"></span>
+                        <span class="fermer deux"></span>
+                    </div>
+                  </div>';
         ?>
+        </section>
     </main>
 
     <footer>

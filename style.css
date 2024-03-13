@@ -66,10 +66,6 @@ img {
   max-height: 500px;
 }
 
-section {
-  margin-bottom: 72px;
-}
-
 .section-colorée {
   /*background-color: linear-gradient(70deg, #C4DFDF, #FFE3DE);*/
   background-color: #ffe9e3;
@@ -238,7 +234,6 @@ nav {
 
 .section-colorée.ado {
   position: relative;
-  margin-top: 80px;
   display: flex;
   margin-top: 130px;
 }
@@ -273,7 +268,7 @@ nav {
   padding: 36px 40px;
   align-items: center;
   color: #343a40;
-  background-color: #D4FFF0;
+  background-color: #E6FFDF;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
@@ -292,6 +287,82 @@ nav {
 }
 
 /*      TÉLÉCONSULTATION     */
+
+.section-colorée.téléconsultation {
+  position: relative;
+  display: flex;
+  margin-bottom: 112px;
+}
+
+.carré-téléconsultation {
+  width: 50%;
+  margin-left: 38%;
+}
+
+.img-container.téléconsult {
+  position: absolute;
+  background-color: aliceblue;
+  max-width: 20%;
+  top: 12%;
+  left: 8%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.photo-téléconsult {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-right: 70px;
+}
+
+.section-colorée.déroulé {
+  display: flex;
+  margin-bottom: 72px;
+}
+
+.photo-déroulé {
+  max-width: 450px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-right: 70px;
+}
+
+.paragraphe-déroulé {
+  width: 70%;
+}
+
+.box-témoignages {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 19%;
+  color: #343a40;
+  margin-bottom: 72px;;
+}
+
+.commentaire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40%;
+  box-sizing: border-box;
+  margin: auto 6px;
+  padding: 36px 40px;
+  /*border-radius: 0.7rem;*/
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.commentaire.un {
+  background-color: #EEEDEB;
+}
+
+.commentaire.deux {
+  background-color: #FFF6E9;
+}
+
+.commentaire.trois {
+  background-color: #EEF5FF;
+}
 
 /*      CONTACT     */
 
@@ -331,6 +402,7 @@ form {
   flex-direction: column;
   max-width: 60%;
   margin: auto;
+  margin-bottom: 68px;
 }
 
 .form-nom-email {
@@ -375,8 +447,51 @@ input[type='submit']:hover {
   cursor: pointer;
 }
 
+.message-formulaire {
+  border: 0.8px solid black;
+  display: flex;
+  width: 60%;
+  margin: auto;
+  padding: 10px 16px;
+  text-justify: center;
+  position: relative;
+}
+
+.fermer-notification:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.fermer {
+  height: 3px;
+  width: 16px;
+  background-color: black;
+  position: absolute;
+  top: 12px;
+  right: 6px;
+}
+
+.fermer.un {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.fermer.deux {
+  transform: translateY(0) rotate(45deg);
+}
+
+#vérification-form {
+  display: hidden;
+}
+
 /*      FOOTER     */ 
 
 footer {
+  width: 100%;
+  height: 120px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
   background-color: #FBFFFE;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

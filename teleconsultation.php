@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="./style.css">
     <link rel="preload" href="./images" as="pictures">
+    <script src="script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +24,47 @@
     </header>
 
     <main>
-    
+        <section class="section-colorée téléconsultation">
+            <div class="img-container téléconsult"><img src="./images/photo17.jpg" alt="" class="photo-téléconsult"></div>
+            <div class="carré-téléconsultation">
+                <h1>Pourquoi téléconsulter</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore in culpa qui officia deserunt mollit anim id est laborum. <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-colorée déroulé">
+            <div>
+                <h1>Le déroulé</h1>
+                <p class="paragraphe-déroulé">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <a href="contact.php" class="cta">Prendre rendez-vous</a>
+            </div>
+            <div><img src="./images/photo20.jpg" alt="" class="photo-déroulé"></div>
+        </section>
+
+        <section class="box-témoignages">
+            <div class="commentaire un">
+                <h3>Titre</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+            <div class="commentaire deux">
+                <h3>Titre</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+            <div class="commentaire trois">
+                <h3>Titre</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+        </section>
     </main>
 
     <footer>

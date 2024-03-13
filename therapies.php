@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="./style.css">
     <link rel="preload" href="./images" as="pictures">
+    <script src="script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
